@@ -8,7 +8,13 @@
             alert ("Needs to be 5 letters");
             return
         }
-        alert (str + " was guessed!");
+        $(function() {
+            $('#input').on("input", function() {
+            $('#input_print').text($(this).val());
+  });
+});
+
+
     }
 
     $(document).ready(function(){
@@ -16,7 +22,9 @@
     });
 </script>
 </head>
+<div id="input_print">
 
+</div>
 <body>
     <div>
         <div id="guesses">
