@@ -2,19 +2,22 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
     
-    function onButton(e){
+    function whenGuessIsClicked(e){
         var str = $("#input").val();
-        $("#text").html(str);
+        if (str.length != 5){
+            alert ("Needs to be 5 letters");
+            return
+        }
+        alert (str + " was guessed!");
     }
 
     $(document).ready(function(){
-        $("#button").click(onButton);
+        $("#guess").click(whenGuessIsClicked);
     });
 </script>
 </head>
 
 <body>
     <input type="text" id="input">
-    <button type="button" id="button">Show</button>
-    <span>input is </span><span id="text">pending</span>
+    <button type="button" id="guess">Submit</button>
 </body>
