@@ -7,19 +7,19 @@
         if (str.length != 5){
             alert ("Needs to be 5 letters");
             return
-        }
-        $(function() {
-            $('#input').on("input", function() {
-            $('#input_print').text($(this).val());
-  });
-});
-
-
+        }   
     }
-
-    $(document).ready(function(){
+    function executewhenloaded(){
         $("#guess").click(whenGuessIsClicked);
-    });
+        $('#input').on("input", function() {
+                $('#input_print').text($(this).val());
+        
+            });
+
+
+        
+    }
+    $(document).ready(executewhenloaded);
 </script>
 </head>
 <div id="input_print">
@@ -32,7 +32,7 @@
         </div>
 
         <div id="guess_input">
-            <input type="text" id="input">
+            <input type="text" id="input" maxlength="5">
             <button type="button" id="guess">Guess</button>
         </div>
     </div>
