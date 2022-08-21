@@ -1,6 +1,21 @@
 <head>
     <style>
-        p1 {
+        .r1 {
+          background-color: rgb(70, 70, 70);
+        }
+        .r1 .c1{
+          background-color: rgb(70, 70, 70);
+        }
+        .r1 .c2{
+          background-color: rgb(70, 70, 70);
+        }
+        .r1 .c3{
+          background-color: rgb(70, 70, 70);
+        }
+        .r1 .c4{
+          background-color: rgb(70, 70, 70);
+        }
+        .r1 .c5{
           background-color: rgb(70, 70, 70);
         }
     </style>
@@ -13,15 +28,14 @@
         $(document).on('keypress, keydown', function(event) {
             var character = String.fromCharCode(event.keyCode).toUpperCase();
 
-
             if (event.keyCode==8) {
                 chars=chars.slice(0,-1);
-                var selector = "#guess1 ."+(chars.length+1);
+                var selector = ".r1 .c"+(chars.length+1);
                 $(selector).text("_");
 
             }else if ((event.keyCode>=65&&event.keyCode<=90&&chars.length<5)||(event.keyCode>=97&&event.keyCode<=122&&chars.length<5)){
                 chars += character;
-                var selector = "#guess1 ."+chars.length;
+                var selector = ".r1 .c"+chars.length;
                 $(selector).text(chars.slice(-1).toUpperCase());
             }else if (event.keyCode==13 && chars.length==5){
                 alert("guessed")
@@ -32,12 +46,12 @@
     $(document).ready(executewhenWindowReady);
 </script>
 </head>
-<p1 id="guess1" style="color:rgb(255, 255, 255);font-size:50px;">
-    <span class = "1">_</span>
-    <span class = "2">_</span>      
-    <span class = "3">_</span>      
-    <span class = "4">_</span>  
-    <span class = "5">_</span>      
+<p1 class="r1" style="color:rgb(255, 255, 255);font-size:50px;">
+    <span class = "c1">_</span>
+    <span class = "c2">_</span>      
+    <span class = "c3">_</span>      
+    <span class = "c4">_</span>  
+    <span class = "c5">_</span>      
 </p1>
 <body>
     <div>
