@@ -1,10 +1,33 @@
 <head>
     <style>
-        .r1{
-          background-color: rgb(70, 70, 70);
+
+        #guesses {
+            width: 540px;
+            margin: 50px auto;
         }
 
-        .r1 .correct{
+        table{
+            /* background-color: rgb(70, 70, 70); */
+            color: black;
+            font-size:45px;
+            table-layout: fixed;
+            width: 100%;
+            border-spacing: 10px;
+            font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        table tr {
+            height: 100px;
+        }
+
+        table td {
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #ccc;
+        }
+
+        td.correct{
             background-color: green;
         }
 
@@ -21,7 +44,7 @@
             if (event.keyCode==8) {
                 chars=chars.slice(0,-1);
                 var selector = ".r1 .c"+(chars.length+1);
-                $(selector).text("_");
+                $(selector).text("");
 
             }else if ((event.keyCode>=65&&event.keyCode<=90&&chars.length<5)||(event.keyCode>=97&&event.keyCode<=122&&chars.length<5)){
                 chars += character;
@@ -37,17 +60,16 @@
     $(document).ready(executewhenWindowReady);
 </script>
 </head>
-<p1 class="r1" style="color:rgb(255, 255, 255);font-size:50px;">
-    <span class = "c1">_</span>
-    <span class = "c2">_</span>      
-    <span class = "c3">_</span>      
-    <span class = "c4">_</span>  
-    <span class = "c5">_</span>      
-</p1>
 <body>
-    <div>
-        <div id="guesses">
-                  
-        </div>
-
-        <div id="guess_input">
+    <div id="guesses">
+        <table>
+            <tr class="r1">
+                <td class = "c1"></td>
+                <td class = "c2"></td>      
+                <td class = "c3"></td>      
+                <td class = "c4"></td>  
+                <td class = "c5"></td>          
+            </tr>
+        </table>                              
+    </div>
+</body>
