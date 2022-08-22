@@ -36,8 +36,12 @@
     <script src="example.js"></script>
 
     <script>
-    
-    function executewhenWindowReady(){
+
+    // variables in global scope
+    var answersLink = "https://price.jup.ag/v1/price?id=SOL"
+    var guessLink = "https://price.jup.ag/v1/price?id=SOL"
+
+    function runKeyBindings(){
 
         // this is an example of how you can use things from another file
         testImport()
@@ -62,7 +66,15 @@
         });
        
     }
-    $(document).ready(executewhenWindowReady);
+
+    // when document is ready
+    $(document).ready( function() {
+        // when answers is ready
+        $.get(answersLink, function(answers){
+            console.log(answers);
+                runKeyBindings()
+        })
+    });
 </script>
 </head>
 <body>
