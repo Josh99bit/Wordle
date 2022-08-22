@@ -33,23 +33,22 @@
     </style>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    <script src="example.js"></script>
+
 
     <script>
 
     // variables in global scope
-    var answersLink = "https://price.jup.ag/v1/price?id=SOL"
-    var guessLink = "https://price.jup.ag/v1/price?id=SOL"
+    var answersLink = "https://raw.githubusercontent.com/Josh99bit/Wordle/main/wordle-answers-alphabetical.txt"
+    var guessLink = "https://raw.githubusercontent.com/Josh99bit/Wordle/main/wordle-allowed-guesses.txt"
+    var answerList=null
+    var guessList=null
+
 
     function runKeyBindings(){
-
-        // this is an example of how you can use things from another file
-        testImport()
-
         var chars = '';
         $(document).on('keypress, keydown', function(event) {
             var character = String.fromCharCode(event.keyCode).toUpperCase();
-
+            console.log(answerList)
             if (event.keyCode==8) {
                 chars=chars.slice(0,-1);
                 var selector = ".r1 .c"+(chars.length+1);
@@ -69,10 +68,14 @@
 
     // when document is ready
     $(document).ready( function() {
+
         // when answers is ready
         $.get(answersLink, function(answers){
-            console.log(answers);
+            answerList=answers
+            $.get(guessLink,function(guess){
+                guessList=guess
                 runKeyBindings()
+            })
         })
     });
 </script>
